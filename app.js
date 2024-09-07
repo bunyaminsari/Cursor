@@ -1,6 +1,8 @@
 const nodemailer = require('nodemailer');
 const csv = require('csv-parser');
 const fs = require('fs');
+const ejs = require('ejs');
+const path = require('path');
 require('dotenv').config();
 
 // Function to send email
@@ -18,13 +20,18 @@ async function sendDoorCodeEmail(recipient, doorCode, fullName) {
     },
   });
 
+  // Render email template
+  const emailTemplate = await ejs.renderFile(
+    path.join(__dirname, './templates/emailTemplate.ejs'),
+    { fullName, doorCode }
+  );
+
   // Email content
   let mailOptions = {
     from: '"HSA Belmont IT" <scanner2@hsabelmont.org>',
     to: recipient,
     subject: 'Your Personal Door Code',
-    text: `Dear ${fullName},\n\nYour classroom door code is: ${doorCode}. Please keep this information confidential.\n\nBest regards,\nHSA Belmont IT`,
-    html: `<p>Dear ${fullName},</p><p>Your classroom door code is: <strong>${doorCode}</strong>.</p><p>Please keep this information confidential.</p><p>Best regards,<br>HSA Belmont IT</p>`,
+    html: emailTemplate,
   };
 
   // Send email
@@ -42,11 +49,11 @@ async function processCsvAndSendEmails(filePath) {
     .on('end', async () => {
       for (const row of results) {
         console.log('Row data:', row); // Add this line for debugging
-        console.log('Name:', row['Name']); // Using the correct column name from the CSV
+        console.log('Name:', row['Full Name']); // Using the correct column name from the CSV
         console.log('Email:', row['Email Address']);
         console.log('Code:', row['Door Code']);
         try {
-          await sendDoorCodeEmail(row['Email Address'], row['Door Code'], row['Name']);
+          await sendDoorCodeEmail(row['Email Address'], row['Door Code'], row['Full Name']);
         } catch (error) {
           console.error(`Error sending email to ${row.email}:`, error);
         }
