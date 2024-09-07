@@ -21,7 +21,7 @@ async function sendDoorCodeEmail(recipients, doorCode) {
 
   // Email content
   let mailOptions = {
-    from: '"Ben Sari" <sari@hsabelmont.org>',
+    from: '"HSA Belmont IT" <scanner2@hsabelmont.org>',
     to: recipients.join(', '),
     subject: 'Updated Door Code',
     text: `The new door code is: ${doorCode}. Please keep this information confidential.`,
