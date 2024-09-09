@@ -22,7 +22,7 @@ async function sendDoorCodeEmail(recipient, doorCode, fullName) {
 
   // Render email template
   const emailTemplate = await ejs.renderFile(
-    path.join(__dirname, './templates/emailTemplate.ejs'),
+    path.join(__dirname, './templates/emailTemplate2.ejs'),
     { fullName, doorCode }
   );
 
