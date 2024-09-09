@@ -21,8 +21,9 @@
       border: 1px solid #ccc;
       padding: 20px;
       margin-top: 20px;
-      background-color: navy;
-      color: white;
+      background-color: rgb(235, 189, 5);
+      border-radius: 10px;
+      text-align: center;
     }
 
     h1, h2 {
@@ -35,6 +36,16 @@
       font-size: 16px;
       line-height: 1.5;
     }
+    
+    footer {
+      text-align: center;
+      font-size: 10px;
+      color: #666;
+    }
+    .passcode { 
+      font-size: 40px;
+      font-weight: bold;
+    }
   </style>
 </head>
 <body>
@@ -46,7 +57,8 @@
       <p>HSA BELMONT ELEMENTARY SCHOOL</p>
       <p>Dear <%= fullName %>,</p>
       <div class="passcode-container">
-        <h2><%= doorCode %></h2>
+        <p>Your passcode is:</p>
+        <h2 class="passcode"><%= doorCode %></h2>
         <p>Please keep this information confidential and do not share it with anyone. If you have any questions, please contact IT Department.</p>
       </div>
     </main>
