@@ -18,4 +18,9 @@ To run the application, use the following command:
 
 ```bash
 node app.js
+```
+To preview the email, run the following command:
 
+```bash
+node preview.js
+```
