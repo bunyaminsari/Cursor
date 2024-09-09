@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Classroom Passcode</title>
+  <style>
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    header {
+      text-align: center;
+    }
+
+    main {
+      text-align: center;
+    }
+
+    .passcode-container {
+      border: 1px solid #ccc;
+      padding: 20px;
+      margin-top: 20px;
+      background-color: navy;
+      color: white;
+    }
+
+    h1, h2 {
+      font-family: Arial, sans-serif;
+      font-weight: bold;
+    }
+
+    p {
+      font-family: Verdana, sans-serif;
+      font-size: 16px;
+      line-height: 1.5;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>CLASSROOM PASSCODE</h1>
+    </header>
+    <main>
+      <p>HSA BELMONT ELEMENTARY SCHOOL</p>
+      <p>Dear <%= fullName %>,</p>
+      <div class="passcode-container">
+        <h2><%= doorCode %></h2>
+        <p>Please keep this information confidential and do not share it with anyone. If you have any questions, please contact IT Department.</p>
+      </div>
+    </main>
+    <footer>
+      <p>This is an automated message.This email is sent to <strong><%= fullName %></strong> by IT Department.Please do not reply to this email.</p>
+    </footer>
+  </div>
+</body>
+</html>
