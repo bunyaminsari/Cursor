@@ -3,7 +3,16 @@ This is a simple Node.js application that sends an email to a list of recipients
 ## Getting Started
 
 1. Clone the repository
+
+   ```
+   git clone https://github.com/yourusername/your-repo-name.git
+   ```
 2. Install the dependencies
+
+   ```bash
+   npm run generate-requirements
+   ```
+
 3. Create a `.env` file with the following variables:
    - `SMTP_HOST`
    - `SMTP_PORT`
