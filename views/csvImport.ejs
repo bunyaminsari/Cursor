@@ -18,20 +18,30 @@
             margin-bottom: 20px;
         }
         .import-form {
-            margin-bottom: 30px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
-        .import-button {
+        .import-button, .preview-button, .send-button {
             background-color: #4CAF50;
             border: none;
             color: white;
-            padding: 15px 32px;
+            padding: 10px 15px;
             text-align: center;
             text-decoration: none;
             display: inline-block;
-            font-size: 16px;
-            margin: 4px 2px;
+            font-size: 14px;
             cursor: pointer;
             border-radius: 5px;
+            min-width: 120px;
+            height: 40px;
+            line-height: 20px;
+        }
+        .preview-button {
+            background-color: #f39c12;
+        }
+        .send-button {
+            background-color: #008CBA;
         }
         table {
             width: 100%;
@@ -70,21 +80,13 @@
         .button-container {
             display: flex;
             justify-content: center;
+            align-items: center;
             gap: 10px;
             margin-bottom: 20px;
+            flex-wrap: wrap;
         }
-        .send-button {
-            background-color: #008CBA;
-            border: none;
-            color: white;
-            padding: 15px 32px;
-            text-align: center;
-            text-decoration: none;
-            display: inline-block;
-            font-size: 16px;
-            margin: 4px 2px;
-            cursor: pointer;
-            border-radius: 5px;
+        input[type="file"] {
+            font-size: 14px;
         }
     </style>
 </head>
@@ -97,7 +99,8 @@
             <button type="submit" class="import-button">Import CSV</button>
         </form>
         <% if (showSendButton) { %>
-            <form action="/send-emails" method="post">
+            <a href="/preview-email" class="preview-button">Preview Email</a>
+            <form action="/send-emails" method="post" style="display: inline;">
                 <button type="submit" class="send-button">Send Emails</button>
             </form>
         <% } %>

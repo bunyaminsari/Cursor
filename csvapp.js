@@ -126,5 +126,23 @@ app.post('/send-emails', async (req, res) => {
     res.render('emailSentResult', { successCount, errorCount });
 });
 
+app.get('/preview-email', async (req, res) => {
+    const fullData = req.session.fullData;
+    if (!fullData || fullData.length === 0) {
+        return res.status(400).send('No CSV data found. Please import a CSV file first.');
+    }
+
+    const firstRow = fullData[0];
+    const emailTemplate = await ejs.renderFile(
+        path.join(__dirname, 'views', 'emailTemplate2.ejs'),
+        { 
+            fullName: firstRow['Full Name'] || 'Valued Customer',
+            doorCode: firstRow['Door Code'] || 'N/A'
+        }
+    );
+
+    res.render('emailPreview', { emailHtml: emailTemplate });
+});
+
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
