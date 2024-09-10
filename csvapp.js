@@ -122,7 +122,8 @@ app.post('/send-emails', async (req, res) => {
         }
     }
 
-    res.send(`Emails sent successfully: ${successCount}, Errors: ${errorCount}`);
+    // Render the result template instead of sending a plain text response
+    res.render('emailSentResult', { successCount, errorCount });
 });
 
 const PORT = process.env.PORT || 3000;
