@@ -1,37 +1,70 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Personal Door Code</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-            color: #333;
-        }
-        .container {
-            max-width: 600px;
-            margin: 0 auto;
-            padding: 20px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-        }
-        .door-code {
-            font-size: 24px;
-            font-weight: bold;
-            color: #4CAF50;
-        }
-    </style>
+  <title>Classroom Passcode</title>
+  <style>
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    header {
+      text-align: center;
+    }
+
+    main {
+      text-align: center;
+    }
+
+    .passcode-container {
+      border: 1px solid #ccc;
+      padding: 20px;
+      margin-top: 20px;
+      background-color: rgb(235, 189, 5);
+      border-radius: 10px;
+      text-align: center;
+    }
+
+    h1, h2 {
+      font-family: Arial, sans-serif;
+      font-weight: bold;
+    }
+
+    p {
+      font-family: Verdana, sans-serif;
+      font-size: 16px;
+      line-height: 1.5;
+    }
+    
+    footer {
+      text-align: center;
+      font-size: 10px;
+      color: #666;
+    }
+    .passcode { 
+      font-size: 40px;
+      font-weight: bold;
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Your Personal Door Code</h1>
-        <p>Dear <%= fullName %>,</p>
-        <p>Your personal door code is: <span class="door-code"><%= doorCode %></span></p>
-        <p>Please keep this information confidential and do not share it with anyone.</p>
-        <p>If you have any questions or concerns, please don't hesitate to contact the IT department.</p>
-        <p>Best regards,<br>HSA Belmont IT</p>
-    </div>
+  <div class="container">
+    <header>
+      <h1>CLASSROOM PASSCODE</h1>
+    </header>
+    <main>
+      <p>HSA BELMONT ELEMENTARY SCHOOL</p>
+      <p>Dear <%= fullName %>,</p>
+      <div class="passcode-container">
+        <p>Your passcode is:</p>
+        <h2 class="passcode"><%= doorCode %></h2>
+        <p>Please keep this information confidential and do not share it with anyone. If you have any questions, please contact IT Department.</p>
+      </div>
+    </main>
+    <footer>
+      <p>This is an automated message. Please do not reply to this email.</p>
+    </footer>
+  </div>
 </body>
 </html>
