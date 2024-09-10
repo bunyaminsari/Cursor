@@ -106,7 +106,7 @@ app.post('/send-emails', async (req, res) => {
             .replace('{{doorCode}}', row['Door Code'] || 'N/A');
 
         const mailOptions = {
-            from: '"HSA Belmont IT" <scanner2@hsabelmont.org>',
+            from: '"Elementary School IT" <email@company.org>',
             to: row['Email Address'],
             subject: 'Your Personal Door Code',
             html: personalizedHtml
